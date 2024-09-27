@@ -3,9 +3,10 @@ import {Box, Button, Typography} from "@mui/material";
 const Pagination = ({ totalItems, dataPerPage, currentPage, setCurrentPage }) => {
     const totalPages = Math.ceil(totalItems / dataPerPage);
 
-    const handlePageClick = (page) => {
-        setCurrentPage(page);
-    };
+    // TODO handle page click
+    // const handlePageClick = (page) => {
+    //     setCurrentPage(page);
+    // };
 
     const handlePrevPage = () => {
         if (currentPage > 1) {
@@ -25,7 +26,7 @@ const Pagination = ({ totalItems, dataPerPage, currentPage, setCurrentPage }) =>
                 Prev Page
             </Button>
 
-            {/* Page Button */}
+            {/* Page Button, TODO this later, Have to add ... if there are lots of pages.*/}
             {/*{[...Array(totalPages).keys()].map((page) => (*/}
             {/*    <Button*/}
             {/*        key={page + 1}*/}
@@ -35,7 +36,7 @@ const Pagination = ({ totalItems, dataPerPage, currentPage, setCurrentPage }) =>
             {/*        {page + 1}*/}
             {/*    </Button>*/}
             {/*))}*/}
-            {currentPage}
+            {currentPage}/{totalPages}
 
             <Button onClick={handleNextPage} disabled={currentPage === totalPages}>
                 Next Page

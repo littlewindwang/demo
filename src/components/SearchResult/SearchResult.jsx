@@ -5,25 +5,28 @@ import fetchAllItems from "../../utils/fetchAllItems";
 import {useEffect, useState} from "react";
 import Pagination from "./SubComponnets/Pagination";
 
-const DATA_PER_PAGE=10
+const DATA_PER_PAGE = 10
+
 function SearchResult({searchTerms}) {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTermsData, setSearchTermsData] = useState([]);
 
-    // calcute current data info
+    // generate current data info
     const indexOfLastItem = currentPage * DATA_PER_PAGE;
     const indexOfFirstItem = indexOfLastItem - DATA_PER_PAGE;
 
-    useEffect((
 
-    ) => {
+
+
+    useEffect(() => {
         fetchAllItems(searchTerms.slice(indexOfFirstItem, indexOfLastItem)).then(results => {
             setSearchTermsData(results)
-    });},[currentPage])
+        });
+    }, [currentPage])
 
     return (
-        <Box data-testid="search-result" >
+        <Box data-testid="search-result">
             this is reach result
             <Box data-testid="search-header">
                 searchTerms search result is {searchTerms.length}
