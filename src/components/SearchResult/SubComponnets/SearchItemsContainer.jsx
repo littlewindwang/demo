@@ -10,7 +10,7 @@ function SearchItemsContainer({currentData}) {
             <Box></Box>
 
             {/*this is reach SearchItermsContainer {currentPageIds}*/}
-            {currentData && currentData.length > 1 && currentData.map(item => {
+            {currentData && currentData.length > 0 && currentData.map(item => {
                return <SearchResultItem key={item.objectID} item={item}/>
             })
             }

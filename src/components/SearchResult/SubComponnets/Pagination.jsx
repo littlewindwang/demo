@@ -1,6 +1,6 @@
 import {Box, Button, Typography} from "@mui/material";
 
-const Pagination = ({ totalItems, dataPerPage, currentPage, setCurrentPage }) => {
+const Pagination = ({ totalItems, dataPerPage, currentPage, setCurrentPage,clearFilter }) => {
     const totalPages = Math.ceil(totalItems / dataPerPage);
 
     // TODO handle page click
@@ -12,12 +12,14 @@ const Pagination = ({ totalItems, dataPerPage, currentPage, setCurrentPage }) =>
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
+        clearFilter()
     };
 
     const handleNextPage = () => {
         if (currentPage < totalPages) {
             setCurrentPage(currentPage + 1);
         }
+        clearFilter()
     };
 
     return (
