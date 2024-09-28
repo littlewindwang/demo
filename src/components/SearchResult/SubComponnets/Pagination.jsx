@@ -1,4 +1,4 @@
-import {Box, Button, Typography} from "@mui/material";
+import {Box, Button} from "@mui/material";
 
 const Pagination = ({ totalItems, dataPerPage, currentPage, setCurrentPage,clearFilter }) => {
     const totalPages = Math.ceil(totalItems / dataPerPage);

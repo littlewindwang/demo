@@ -7,9 +7,6 @@ const fetchInfoById = (id) => {
 // Using Promise.all to call the API concurrently
 const fetchAllItems = async (ids, errorCallback) => {
     try {
-
-        const array1 = [1, 4, 9, 16];
-
         // Pass a function to map
         const requests = ids.map(id => {
             return fetchInfoById(id)
