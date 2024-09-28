@@ -5,6 +5,7 @@ import fetchAllItems from "../../utils/fetchAllItems";
 import {useEffect, useState} from "react";
 import Pagination from "./SubComponnets/Pagination";
 
+// TODO let user able to select items per page
 const DATA_PER_PAGE = 10
 
 // get first top 3 depmartments
@@ -24,7 +25,6 @@ function getTopDepartments(data) {
 }
 
 function SearchResult({searchTerms}) {
-
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTermsData, setSearchTermsData] = useState([]);
     const [topThreeDepartments, setTopThreeDepartments] = useState([]);
@@ -34,11 +34,10 @@ function SearchResult({searchTerms}) {
     const indexOfLastItem = currentPage * DATA_PER_PAGE;
     const indexOfFirstItem = indexOfLastItem - DATA_PER_PAGE;
 
-    // const displayList=
     const handleDepmartmentFilter = (depmartment) => {
         setDepartFilter(depmartment)
     }
-    const handleClearFilter=()=>{
+    const handleClearFilter = () => {
         setDepartFilter('');
     }
 
@@ -49,11 +48,6 @@ function SearchResult({searchTerms}) {
         });
     }, [currentPage])
 
-
-    console.log(searchTermsData.filter((item)=>{
-        console.log(item.department)
-        return item.department===departFilter
-    }))
     return (
         <Box data-testid="search-result">
             <Box data-testid="search-header">
@@ -61,28 +55,22 @@ function SearchResult({searchTerms}) {
                 <Box>
                     <b>Department Filter(for current page):</b>
                     {topThreeDepartments && topThreeDepartments.length > 0 && topThreeDepartments.map((d) => {
-
                         return <Button key={d}
                                        variant={departFilter === d ? 'contained' : 'outlined'}
                                        color={departFilter === d ? 'primary' : 'default'}
-                                       sx={{margin:"5px"}}
+                                       sx={{margin: "5px"}}
                                        onClick={() => {
                                            handleDepmartmentFilter(d)
                                        }}>{d}</Button>
 
                     })}
                     <Button variant="contained" onClick={handleClearFilter}>Clear filter</Button>
-
                 </Box>
-
-
             </Box>
-
-            <SearchItemsContainer currentData={departFilter===''?searchTermsData:searchTermsData.filter((item)=>{
-               return item.department===departFilter
-            })}/>
-
-
+            <SearchItemsContainer
+                currentData={departFilter === '' ? searchTermsData : searchTermsData.filter((item) => {
+                    return item.department === departFilter
+                })}/>
             <Pagination
                 totalItems={searchTerms.length}
                 dataPerPage={DATA_PER_PAGE}

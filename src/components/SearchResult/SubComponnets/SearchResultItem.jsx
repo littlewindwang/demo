@@ -1,6 +1,5 @@
-import {Box, Button, Grid, Link, Modal, Typography} from "@mui/material";
+import {Box, Modal, Typography} from "@mui/material";
 import React from "react";
-import na from '../../../static/na.png'
 
 const TagComponent = ({tag}) => {
 
@@ -41,7 +40,7 @@ function SearchResultItem({item}) {
     }
 
     return (
-        <Box spacing={2} sx={{
+        <Box data-test-id='search-result-item' spacing={2} sx={{
             borderRadius: '5px',
             border: '1px solid gray',
             minHeight: '85px',

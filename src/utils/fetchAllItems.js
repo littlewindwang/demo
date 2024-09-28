@@ -1,17 +1,19 @@
 import axios from "axios";
+
 const fetchInfoById = (id) => {
     return axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`);
 };
 
 // Using Promise.all to call the API concurrently
-const fetchAllItems = async (ids,errorCallback) => {
+const fetchAllItems = async (ids, errorCallback) => {
     try {
 
         const array1 = [1, 4, 9, 16];
 
-// Pass a function to map
+        // Pass a function to map
         const requests = ids.map(id => {
-            return fetchInfoById(id)});
+            return fetchInfoById(id)
+        });
 
         // Wait for all the requests to complete
         const responses = await Promise.all(requests);
@@ -21,7 +23,7 @@ const fetchAllItems = async (ids,errorCallback) => {
     } catch (error) {
         console.error('Error fetching data:', error);
         // call error callback function
-        errorCallback&&errorCallback()
+        errorCallback && errorCallback()
     }
 };
 
