@@ -45,8 +45,9 @@ function SearchResult({searchTerms}) {
         fetchAllItems(searchTerms.slice(indexOfFirstItem, indexOfLastItem)).then(results => {
             setSearchTermsData(results)
             setTopThreeDepartments(getTopDepartments(results));
+            setDepartFilter('');
         });
-    }, [currentPage])
+    }, [searchTerms,currentPage])
 
     return (
         <Box data-testid="search-result">
