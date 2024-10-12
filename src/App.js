@@ -36,7 +36,14 @@ function App() {
 
     return (
         <div className="App">
-            <Box sx={{padding: '0 50px'}}>
+            <Box sx={{padding: '50px'}}>
+                有时候真的很无奈,明明能够通过HR对我Email回复的态度中,了解到,我已经和walgreens的这个职位无缘,却依然需要参加第三轮面试.这种给人一点希望然后发拒信的感觉并不好.我不知道为什么walgreens这么大一个公司,为什么不直接把我觉拒绝,而是非要走完面试流程? <br/>
+                第一轮coding面试,面完立刻来结果:通过. <br/>
+                第二轮系统设计,面完也是立刻来结果:通过. <br/>
+                然后HR就开始爱答不理的态度了.我就知道我已经和职位无缘了. <br/>
+                不理解为什么还要把面试流程走完. <br/>
+                就这样吧 <br/>
+                丹尼尔王 (本业已经禁止爬虫爬)
                 <Box>
                     <DatePicker selected={startDate} onChange={handleDatePickerChange}></DatePicker>
                 </Box>
